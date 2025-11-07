@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard del Administrador</h2>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-center text-bg-primary p-3">
+            <h3>{{ num_docentes }}</h3>
+            <p>Docentes</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center text-bg-success p-3">
+            <h3>{{ num_materiales }}</h3>
+            <p>Materiales</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center text-bg-info p-3">
+            <h3>{{ num_admin }}</h3>
+            <p>Admins</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center text-bg-warning p-3">
+            <h3>{{ num_panol }}</h3>
+            <p>Pañoles</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

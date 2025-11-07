@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Registrar Préstamo (Rol Pañol)</h2>
+<hr>
+<div class="card p-4">
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="{{ form.docente.id_for_label }}" class="form-label">{{ form.docente.label }}</label>
+            {{ form.docente }}
+            {% if form.docente.errors %}
+                <div class="text-danger">{{ form.docente.errors|striptags }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.material.id_for_label }}" class="form-label">{{ form.material.label }}</label>
+            {{ form.material }}
+            {% if form.material.errors %}
+                <div class="text-danger">{{ form.material.errors|striptags }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.cantidad.id_for_label }}" class="form-label">{{ form.cantidad.label }}</label>
+            {{ form.cantidad }}
+            {% if form.cantidad.errors %}
+                <div class="text-danger">{{ form.cantidad.errors|striptags }}</div>
+            {% endif %}
+        </div>
+        
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors|striptags }}
+            </div>
+        {% endif %}
+
+        <button type="submit" class="btn btn-success">Registrar Préstamo</button>
+        <a href="{% url 'listar_prestamos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+<script>
+    // Añadir clases de Bootstrap a los campos del formulario
+    document.querySelectorAll('select, input[type="number"]').forEach(el => {
+        el.classList.add('form-control');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.navbar {
+    background-color: #fdf3cf !important; 
+}
+
+/* fondo */
+body {
+    background-color: #fffefa; 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+/*  barra de Bootstrap  */
+.navbar {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+/* Estilo para la barra*/
+.navbar-light .navbar-nav .nav-link {
+    color: #121212; 
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: #e82d00; 
+}
+
+/* Estilo para el botón de Logout */
+.btn-logout {
+    background-color: #ff2e04;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+.btn-logout:hover {
+    background-color: #c42600;
+    color: rgb(255, 255, 255);
+}

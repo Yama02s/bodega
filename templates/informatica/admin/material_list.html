@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Gestión de Materiales</h2>
+<a href="{% url 'admin_crear_material' %}" class="btn btn-primary mb-3">
+    <i class="bi bi-plus-circle"></i> Nuevo Material
+</a>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for material in materiales %}
+        <tr>
+            <td>{{ material.nombre }}</td>
+            <td>{{ material.stock }}</td>
+            <td>
+                {% if material.activo %}
+                    <span class="badge bg-success">Activo</span>
+                {% else %}
+                    <span class="badge bg-danger">Inactivo</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'admin_editar_material' material.pk %}" class="btn btn-warning btn-sm">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+                <a href="{% url 'admin_eliminar_material' material.pk %}" class="btn btn-danger btn-sm">
+                    <i class="bi bi-trash-fill"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-center">No hay materiales registrados.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Confirmar Eliminación</h2>
+<div class="alert alert-danger">
+    <p>¿Estás seguro de que deseas eliminar el {{ tipo }} <strong>"{{ objeto }}"</strong>?</p>
+    <p>Esta acción no se puede deshacer.</p>
+</div>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    
+    {% if tipo == 'Docente' %}
+        <a href="{% url 'admin_listar_docentes' %}" class="btn btn-secondary">Cancelar</a>
+    {% elif tipo == 'Material' %}
+        <a href="{% url 'admin_listar_materiales' %}" class="btn btn-secondary">Cancelar</a>
+    {% elif tipo == 'Usuario' %}
+        <a href="{% url 'admin_listar_usuarios' %}" class="btn btn-secondary">Cancelar</a>
+    {% endif %}
+</form>
+{% endblock %}
